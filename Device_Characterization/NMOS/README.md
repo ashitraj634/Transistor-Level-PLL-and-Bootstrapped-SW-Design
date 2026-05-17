@@ -79,10 +79,6 @@ NMOS device characterization was performed in Cadence Virtuoso to extract transi
 
 ![ft-VGS](ft_vs_Vgs.png)
 
-### Body Effect
-
-![BodyEffect](Body_Effect.png)
-
 ---
 
 ## Key Observations
