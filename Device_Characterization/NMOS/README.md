@@ -2,88 +2,224 @@
 
 ## Overview
 
-NMOS device characterization was performed in Cadence Virtuoso to extract transistor-level parameters for analog design and gm/Id methodology.
+This section presents transistor-level characterization of an NMOS device for analog and mixed-signal circuit design applications. The objective is to analyze device behavior under different biasing conditions and extract parameters used for transistor sizing and gm/Id based design methodologies.
 
-## Design Environment
+The characterization includes:
 
-| Parameter | Value |
-|------------|--------|
-| Tool | Cadence Virtuoso |
-| Libraries | UMC18 / ts018_scl_prim / gpdk090 |
-| Analysis | DC Analysis |
-
----
-
-## Extracted Parameters
-
-- ID vs VGS
-- ID vs VGS for multiple VDS
-- ID vs VDS
-- gm vs VGS
-- gm/ID vs VGS
-- Vth vs VGS
-- VDSAT vs VGS
-- ID/W vs gm/ID
-- ft vs gm/ID
-- ft vs VGS
-- Cgs vs VGS
-- Body effect
+- Transfer characteristics
+- Output characteristics
+- Threshold voltage extraction
+- Transconductance analysis
+- gm/Id methodology
+- Gate capacitance behavior
+- Transition frequency analysis
+- Saturation characteristics
 
 ---
 
-## Channel Length Modulation
+## Device Schematic
 
-λ = 0.189
+The following schematic was used to perform transistor characterization.
 
----
-
-## Results
-
-### ID vs VGS
-
-![ID-VGS](Id_Vgs.png)
-
-### ID vs VDS
-
-![ID-VDS](Id_Vds.png)
-
-### gm vs VGS
-
-![gm](gm_Vgs.png)
-
-### gm/ID vs VGS
-
-![gmID](gm_Id_Vgs.png)
-
-### Cgs vs VGS
-
-![Cgs](Cgs_Vgs.png)
-
-### Vth vs VGS
-
-![Vth](Vth_Vgs.png)
-
-### VDSAT vs VGS
-
-![VDSAT](Vdsat_Vgs.png)
-
-### ID/W vs gm/ID
-
-![IDW](IdW_vs_gmId.png)
-
-### ft vs gm/ID
-
-![ft-gmId](ft_vs_gmId.png)
-
-### ft vs VGS
-
-![ft-VGS](ft_vs_Vgs.png)
+![NMOS Schematic](schematics/Schematic.png)
 
 ---
 
-## Key Observations
+# Transfer Characteristics
 
-- Drain current increases with gate voltage
-- Body bias increases threshold voltage
-- gm/ID decreases in strong inversion
-- Channel length modulation impacts saturation current
+Transfer characteristics show how drain current and small-signal parameters vary with gate voltage.
+
+---
+
+### Drain Current vs Gate Voltage (Id–Vgs)
+
+Shows the variation of drain current with gate voltage and helps identify operating regions.
+
+![Id vs Vgs](plots/transfer/Id_Vgs.png)
+
+**Purpose**
+- Observe device turn-on behavior
+- Determine strong and weak inversion regions
+- Analyze current scaling
+
+---
+
+### Transconductance vs Gate Voltage (gm–Vgs)
+
+Shows sensitivity of drain current with respect to gate voltage.
+
+![gm vs Vgs](plots/transfer/gm_Vgs.png)
+
+**Purpose**
+
+- Determine transistor gain capability
+- Identify optimum bias points
+- Estimate analog performance
+
+---
+
+### Threshold Voltage Extraction
+
+Used to estimate threshold voltage (Vth) of the device.
+
+![Vth vs Vgs](plots/transfer/Vth_Vgs.png)
+
+**Purpose**
+
+- Determine transistor turn-on voltage
+- Compare process behavior
+- Support device modeling
+
+---
+
+### Transition Frequency vs Gate Voltage (ft–Vgs)
+
+Shows high-frequency response variation.
+
+![ft vs Vgs](plots/transfer/ft_vs_Vgs.png)
+
+**Purpose**
+
+- Estimate speed limitations
+- Analyze RF capability
+- Determine optimal operating region
+
+---
+
+### Gate Voltage vs gm/Id
+
+Plots gate voltage against gm/Id ratio.
+
+![Vgs gmId](plots/transfer/Vgs_gm_Id.png)
+
+**Purpose**
+
+- Support gm/Id design methodology
+- Select bias conditions
+- Optimize power-performance tradeoffs
+
+---
+
+# Output Characteristics
+
+Output characteristics describe drain current variation with drain voltage.
+
+---
+
+### Drain Current vs Drain Voltage (Id–Vds)
+
+Shows NMOS behavior in linear and saturation regions.
+
+![Id vs Vds](plots/output/Id_Vds.png)
+
+**Purpose**
+
+- Identify operating regions
+- Observe channel-length modulation
+- Study output resistance behavior
+
+---
+
+### Drain Current vs Gate Voltage for Multiple Vds Values
+
+Transfer characteristics for different drain voltages.
+
+![Multiple Vds](plots/output/Id_Vgs_multiple_Vds.png)
+
+**Purpose**
+
+- Analyze Vds dependence
+- Observe short-channel effects
+- Evaluate device behavior under different bias conditions
+
+---
+
+### Saturation Voltage vs Gate Voltage
+
+Shows variation of saturation voltage with gate voltage.
+
+![Vdsat](plots/output/Vdsat_Vgs.png)
+
+**Purpose**
+
+- Determine saturation boundary
+- Support analog bias design
+
+---
+
+# gm/Id Methodology Analysis
+
+The gm/Id methodology provides a systematic approach for transistor sizing in analog design.
+
+---
+
+### gm/Id vs Vgs
+
+Shows efficiency variation with gate voltage.
+
+![gmId vs Vgs](plots/gm_id/gm_Id_Vgs.png)
+
+**Purpose**
+
+- Determine operating efficiency
+- Support transistor sizing
+
+---
+
+### gm/Id vs Vds
+
+Shows effect of drain voltage on efficiency.
+
+![gmId vs Vds](plots/gm_id/gm_Id_Vds.png)
+
+**Purpose**
+
+- Analyze sensitivity to drain bias
+- Determine optimal operating points
+
+---
+
+### Gate Capacitance vs Gate Voltage (Cgs–Vgs)
+
+Shows capacitance variation.
+
+![Cgs](plots/gm_id/Cgs_Vgs.png)
+
+**Purpose**
+
+- Analyze dynamic behavior
+- Estimate loading effects
+
+---
+
+### Transition Frequency vs gm/Id
+
+Shows speed-efficiency tradeoff.
+
+![ft gmId](plots/gm_id/ft_vs_gmId.png)
+
+**Purpose**
+
+- Select optimal transistor operating point
+- Study performance-power tradeoffs
+
+---
+
+# Key Observations
+
+- Threshold voltage extraction was performed from transfer characteristics
+- Linear and saturation regions were identified from output curves
+- gm/Id methodology was used for efficient transistor sizing
+- Frequency response and capacitance effects were analyzed
+- Device characteristics were examined for analog design applications
+
+---
+
+# Tools Used
+
+- Cadence Virtuoso
+- Analog Design Environment (ADE)
+- Device Simulation Setup
+- Process Design Kit (PDK)
+
+---
