@@ -148,15 +148,6 @@ Shows variation of current density with efficiency.
 
 ---
 
-# Future Work
-
-- Parameter extraction
-- PMOS vs NMOS comparison
-- Transistor sizing analysis
-- PLL circuit integration
-- Bootstrapped switch implementation
-
----
 
 # Tools Used
 
