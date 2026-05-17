@@ -15,15 +15,10 @@ This module details the design, implementation, and characterization of a standa
 ## Schematic Design
 The core inverter logic is realized using standard complementary PMOS and NMOS devices.
 
-### Circuit Diagram
-![Upload: Hand-drawn CMOS Inverter Circuit Diagram](schematics/hand_drawn_inverter_circuit.png)
-
-### Symbol Generation
-![Upload: Hand-drawn Inverter Symbol](schematics/hand_drawn_inverter_symbol.png)
 
 ### Cadence Implementation
 ![Upload: Cadence Schematic Screenshot](schematics/cadence_inverter_schematic.png)
-![Upload: Cadence Symbol Screenshot](schematics/cadence_inverter_symbol.png)
+
 
 ---
 
@@ -37,7 +32,7 @@ The DC sweep analyzes the transition region between logic levels.
 ### Transient Response
 The transient analysis verifies the time-domain switching behavior for a standard square pulse input.
 
-![Upload: Hand-drawn Waveform Figure](plots/hand_drawn_waveform.png)
+
 ![Upload: Transient Analysis Screenshot](plots/transient_analysis.png)
 
 ### Pre-Layout Propagation Delay Calculation
@@ -80,8 +75,6 @@ The extracted layout netlist was simulated and overlaid with the schematic respo
 **Rising Transition Comparison:**
 ![Upload: Rising Transition Comparison](plots/rising_transition_comparison.png)
 
-**Falling Transition Comparison:**
-![Upload: Falling Transition Comparison](plots/falling_transition_comparison.png)
 
 ### Post-Layout Propagation Delay Calculation
 Based on the extracted layout waveform:
