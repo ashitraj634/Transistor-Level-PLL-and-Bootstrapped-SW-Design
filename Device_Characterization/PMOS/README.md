@@ -47,32 +47,6 @@ Shows variation of drain current with gate voltage.
 
 ---
 
-### Transconductance vs Gate Voltage (gm–VSG)
-
-Shows sensitivity of drain current with respect to gate voltage.
-
-![gm vs Vsg](plots/transfer/gm_Vsg.png)
-
-**Purpose**
-
-- Analyze gain capability
-- Determine optimum operating region
-
----
-
-### Threshold Voltage Extraction
-
-Shows extracted threshold voltage characteristics.
-
-![Vth](plots/transfer/Vth_Vsg.png)
-
-**Purpose**
-
-- Determine PMOS turn-on voltage
-- Verify device characteristics
-
----
-
 ### Transition Frequency vs Gate Voltage (ft–VSG)
 
 Shows frequency response variation.
@@ -83,19 +57,6 @@ Shows frequency response variation.
 
 - Determine high-frequency performance
 - Study speed limitations
-
----
-
-### Gate Voltage vs gm/Id
-
-Shows relationship between gate voltage and gm/Id.
-
-![Vsg gmId](plots/transfer/Vsg_gm_Id.png)
-
-**Purpose**
-
-- Support transistor sizing
-- Determine operating efficiency
 
 ---
 
@@ -127,13 +88,16 @@ Output characteristics describe current variation with drain-source voltage.
 
 ---
 
-### Saturation Voltage vs Gate Voltage
+### Body Effect (ID vs VGS with Varying VSB)
 
-![Vdsat](plots/output/Vdsat_Vsg.png)
+Shows dependency of drain current on body bias.
+
+![Body Effect](plots/output/Body_Effect.png)
 
 **Purpose**
 
-- Determine saturation conditions
+- Analyze threshold voltage shift
+- Observe conduction dependency on source-body voltage
 
 ---
 
@@ -151,23 +115,16 @@ Output characteristics describe current variation with drain-source voltage.
 
 ---
 
-### gm/Id vs VSD
+### Current Density vs gm/Id (ID/W vs gm/Id)
 
-![gmId Vsd](plots/gm_id/gm_Id_Vsd.png)
+Shows variation of current density with efficiency.
 
-**Purpose**
-
-- Study bias sensitivity
-
----
-
-### Gate Capacitance vs Gate Voltage
-
-![Cgs](plots/gm_id/Cgs_Vsg.png)
+![IdW vs gmId](plots/gm_id/IdW_vs_gmId.png)
 
 **Purpose**
 
-- Analyze dynamic performance
+- Determine optimal transistor sizing
+- Analyze strong inversion regions
 
 ---
 
