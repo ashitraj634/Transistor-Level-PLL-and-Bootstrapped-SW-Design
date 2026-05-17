@@ -197,9 +197,9 @@ Two operating regions are visible:
 
 Relationship:
 
-\[
+$$
 I_D = I_{D(sat)}(1+\lambda V_{DS})
-\]
+$$
 
 where:
 
@@ -207,9 +207,9 @@ where:
 
 Calculated:
 
-\[
+$$
 \lambda = 0.189
-\]
+$$
 
 ---
 
@@ -245,15 +245,15 @@ As source-to-body voltage increases:
 
 Threshold voltage equation:
 
-\[
+$$
 V_T = V_{T0}+\gamma[(\sqrt{2\phi+V_{SB}})-(\sqrt{2\phi})]
-\]
+$$
 
 Drain current equation:
 
-\[
+$$
 I_D=\frac{1}{2}\mu_nC_{ox}\frac{W}{L}(V_{GS}-V_T)^2
-\]
+$$
 
 Since:
 
