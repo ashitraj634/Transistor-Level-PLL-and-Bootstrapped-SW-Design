@@ -166,16 +166,16 @@ Shows efficiency variation with gate voltage.
 
 ---
 
-### gm/Id vs Vds
+### Current Density vs gm/Id (Id/W–gm/Id)
 
-Shows effect of drain voltage on efficiency.
+Shows the variation of current density with efficiency.
 
-![gmId vs Vds](plots/gm_id/gm_Id_Vds.png)
+![IdW vs gmId](plots/gm_id/IdW_vs_gmId.png)
 
 **Purpose**
 
-- Analyze sensitivity to drain bias
-- Determine optimal operating points
+- Determine optimal transistor sizing
+- Analyze power-performance tradeoffs
 
 ---
 
