@@ -15,11 +15,8 @@ This module details the design and implementation of a Common Source (CS) Amplif
 ## Schematic Design
 The core amplifier uses an NMOS driver and a PMOS current mirror active load to establish high output impedance.
 
-### Circuit Architecture
-![Upload: Hand-drawn Circuit Diagram](schematics/hand_drawn_circuit.png)
-
 ### Cadence Implementation
-![Upload: Cadence Schematic](schematics/cadence_schematic.png)
+![Cadence Schematic](schematics/cadence_schematic.png)
 
 ---
 
@@ -56,11 +53,25 @@ Current Density:
 The CS amplifier with an active load was analyzed to confirm small-signal performance parameters.
 
 ### AC Response (Frequency & Gain)
-![Upload: AC Response Plot](plots/ac_response.png)
-![Upload: Frequency Response Plot](plots/frequency_response.png)
+![AC Response Plot](plots/ac_response.png)
 
 ### Validation Summary
 The simulation confirms:
 - The PMOS current mirror provides the required high-impedance active load.
 - Target bandwidth and gain characteristics were achieved.
 - Transistor operation stabilized under the 1 mW power constraint.
+
+### Observations
+1. Current mirror active load provides larger output resistance compared to resistive loading.
+2. Gain improvement is achieved due to increased effective load resistance.
+3. The active load configuration reduces area requirement compared to physical resistors.
+4. Frequency response depends on device sizing and load capacitance.
+5. gm/Id methodology simplifies transistor sizing.
+6. The amplifier exhibits gain roll-off at higher frequencies because of parasitic effects.
+
+### Applications
+- Analog signal processing
+- Gain stages
+- Operational amplifier stages
+- PLL subsystems
+- Low-power analog circuits
