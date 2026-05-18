@@ -27,7 +27,7 @@ Based on the power specification:
 $$P = V_{DD} \times I_D$$
 $$I_D = \frac{1 \text{ mW}}{1.8 \text{ V}} = 0.55 \text{ mA}$$
 
-*(Note: Internal reference current for the mirror bias branch was modeled at $13.75\text{ \mu A}$)*
+*(Note: Internal reference current for the mirror bias branch was modeled at $13.75\mu\text{A}$)*
 
 ### 2. Transconductance ($g_m$) Requirement
 Determined by the Unity Gain Bandwidth constraints:
@@ -40,7 +40,7 @@ $$R_L = \frac{4}{0.5 \text{ mS}} = 4.6 \text{ k}\Omega$$
 
 ### 4. Transistor Sizing ($g_m/I_D$ Method)
 Operating point efficiency:
-$$\frac{g_m}{I_D} = \frac{0.5 \text{ mS}}{13.75 \text{ \mu A}} = 5.33$$
+$$\frac{g_m}{I_D} = \frac{0.5 \text{ mS}}{13.75\mu\text{A}} = 5.33$$
 
 Current Density:
 - $I_D/W = 25.17$

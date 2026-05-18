@@ -29,11 +29,11 @@ The mirrors were designed using the robust $g_m/I_D$ methodology for precise con
 
 ### MOSFET Characterization
 $$g_m = \frac{2I_D}{V_{GS} - V_T}$$
-For $I_D = 100 \text{ \mu A}$ and $V_{ov} = 200 \text{ mV}$:
-$$g_m = \frac{2 \times 100 \text{ \mu A}}{200 \text{ mV}} = 1 \text{ mS}$$
+For $I_D = 100 \mu\text{A}$ and $V_{ov} = 200 \text{ mV}$:
+$$g_m = \frac{2 \times 100 \mu\text{A}}{200 \text{ mV}} = 1 \text{ mS}$$
 
 ### $g_m/I_D$ Evaluation
-$$\frac{g_m}{I_D} = \frac{1 \text{ mS}}{100 \text{ \mu A}} = 10$$
+$$\frac{g_m}{I_D} = \frac{1 \text{ mS}}{100 \mu\text{A}} = 10$$
 
 ### Device Sizing
 From the $g_m/I_D$ characterization charts:
@@ -42,7 +42,7 @@ At $g_m/I_D = 10$:
 - Current Density ($I_D/W$) = 27.0404 $\mu$A/$\mu$m
 
 **Width Calculation:**
-$$W = \frac{I_D}{I_D/W} = \frac{100}{27.0404} = 3.69 \text{ \mu m}$$
+$$W = \frac{I_D}{I_D/W} = \frac{100}{27.0404} = 3.69 \mu\text{m}$$
 
 ---
 
