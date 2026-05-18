@@ -13,11 +13,8 @@ This module details the design and implementation of a Common Source (CS) Amplif
 ## Schematic Design
 The core amplifier uses an NMOS driving transistor with a passive resistor $R_L$ connected to $V_{DD}$.
 
-### Circuit Architecture
-![Upload: Hand-drawn Circuit Diagram](schematics/hand_drawn_circuit.png)
-
 ### Cadence Implementation
-![Upload: Cadence Schematic](schematics/cadence_schematic.png)
+![Cadence Schematic](schematics/cadence_schematic.png)
 
 ---
 
@@ -43,9 +40,7 @@ $$I_D = \frac{V_{DD} - V_{OUT}}{R_o} = \frac{1.8 - 0.9}{1.528 \text{ k}\Omega} =
 The operating point efficiency:
 $$\frac{g_m}{I_D} = \frac{3.14 \text{ mS}}{0.588 \text{ mA}} = 5.33$$
 
-**$g_m/I_D$ Characteristic Curves:**
-![Upload: gm/Id Graph](plots/gm_Id_graph.png)
-![Upload: Id/W vs gm/Id Graph](plots/Id_W_vs_gm_Id_graph.png)
+
 
 ---
 
@@ -56,12 +51,11 @@ The designed amplifier was subjected to both AC and transient analysis to verify
 ### AC Response (Frequency & Gain)
 The frequency response validates the 3 dB bandwidth and the unity-gain crossover frequency.
 
-![Upload: AC Response Plot](plots/ac_response.png)
-![Upload: Frequency Response Plot](plots/frequency_response.png)
-![Upload: Gain Response Plot](plots/gain_response.png)
+![AC Response Plot](plots/ac_response.png)
+![Frequency Response Plot](plots/frequency_response.png)
+![Gain Response Plot](plots/gain_response.png)
 
-### Output Characteristics
-![Upload: Vout vs Vin Graph](plots/Vout_Vin_graph.png)
+
 
 ### Validation Summary
 The CS amplifier successfully meets the design requirements:
