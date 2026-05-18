@@ -15,11 +15,8 @@ This module details the design and implementation of a Cascode Amplifier with a 
 ## Schematic Design
 The amplifier employs a stacked transistor architecture (input driver $M_1$ and cascode device $M_0$) connected to a passive load resistor $R_D$.
 
-### Circuit Architecture
-![Upload: Hand-drawn Cascode Schematic](schematics/hand_drawn_cascode_schematic.png)
-
 ### Cadence Implementation
-![Upload: Cadence Schematic](schematics/cadence_schematic.png)
+![Cadence Schematic](schematics/cadence_schematic.png)
 
 ---
 
@@ -53,8 +50,8 @@ For the Input Driver ($M_1$):
 - Bias Voltage ($V_{GS}$): $\approx 0.57$ V
 
 **Methodology Plots:**
-![Upload: gm/ID vs VGS](plots/gm_Id_vs_VGS.png)
-![Upload: ID/W vs gm/ID](plots/Id_W_vs_gm_Id.png)
+![gm/ID vs VGS](plots/gmId_Vgs.png)
+![ID/W vs gm/ID](plots/IdW_gmId.png)
 
 ---
 
@@ -67,11 +64,25 @@ For the Input Driver ($M_1$):
 ### AC Analysis (Gain and Phase Response)
 The amplifier's frequency behavior was analyzed to verify the gain and bandwidth constraints.
 
-![Upload: AC Analysis Plot](plots/ac_analysis.png)
-![Upload: Gain and Phase Plot](plots/gain_phase.png)
+![AC Analysis Plot](plots/AC_Response.png)
+![Gain and Phase Plot](plots/Gain_Phase.png)
 
 ### Validation Summary
 AC simulation results confirm:
 - **Gain:** $\approx 18.97$ dB (Peak gain $\approx 19.855$ dB)
 - **Bandwidth:** $\approx 25.19$ MHz
 The design effectively achieves the targeted gain profile under the specified power constraints.
+
+### Observations
+1. Cascode structure increases output resistance.
+2. Gain improves compared to a simple common source amplifier.
+3. Miller capacitance effects are reduced.
+4. Improved frequency performance is observed.
+5. Bias selection significantly affects amplifier operation.
+
+### Applications
+- RF front-end circuits
+- Analog signal processing
+- PLL systems
+- High gain amplifiers
+- Current buffer stages
