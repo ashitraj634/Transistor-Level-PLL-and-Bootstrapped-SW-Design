@@ -6,7 +6,7 @@ The design brings together custom-designed sub-blocks—including the Phase Freq
 
 ---
 
-## 📊 Key Specifications & Target Parameters
+## Key Specifications & Target Parameters
 
 > [!IMPORTANT]
 > The primary design objective is to synthesize a stable, low-jitter **2.56 GHz output** from a **20 MHz reference clock** using a loop multiplication factor of **128**.
@@ -24,7 +24,7 @@ The design brings together custom-designed sub-blocks—including the Phase Freq
 
 ---
 
-## 💻 Design Environment
+## Design Environment
 
 * **Core CAD Suite**: Cadence Virtuoso
 * **Technology Libraries**: `UMC18`, `ts018_scl_prim`, `gpdk090`
@@ -34,40 +34,9 @@ The design brings together custom-designed sub-blocks—including the Phase Freq
 
 ---
 
-## 🧱 PLL System Block Diagram & Architecture
+## PLL System Block Diagram & Architecture
 
-The block diagram below highlights the signal routing and closed-loop feedback structure:
-
-```mermaid
-flowchart TB
-    %% Reference Input
-    Ref[Reference Clock<br>20 MHz] --> PFD
-    
-    %% Forward Path
-    subgraph Forward_Path [Forward Control Path]
-        PFD[Phase Frequency Detector] -->|UP / DOWN| CP[Charge Pump]
-        CP -->|I_CP| LF[Loop Filter<br>R = 1 kΩ, C = 277 pF]
-        LF -->|V_ctrl| VCO[Current-Starved VCO]
-    end
-    
-    %% Output and Feedback
-    VCO -->|f_out| Out[System Output<br>2.56 GHz]
-    VCO -->|f_out| Div[Divide-by-128 Counter]
-    
-    %% Feedback Connection
-    Div -->|f_fb: 20 MHz| PFD
-
-    %% Custom Styling
-    style Ref fill:#f3e8ff,stroke:#6b21a8,stroke-width:2px
-    style Out fill:#ecfdf5,stroke:#065f46,stroke-width:2px
-    style Forward_Path fill:#f8fafc,stroke:#475569,stroke-width:1px
-    style VCO fill:#f0fdf4,stroke:#16a34a,stroke-width:2px
-    style CP fill:#fff7ed,stroke:#ea580c,stroke-width:2px
-    style LF fill:#eff6ff,stroke:#2563eb,stroke-width:2px
-```
-
-### Functional Block-Level Circuit Diagram
-The structural diagram below showcases the system interfaces, current-steering charging/discharging switches, and the integrated passive Loop Filter network:
+The block-level circuit diagram below highlights the signal routing, system interfaces, current-steering charging/discharging switches, and the closed-loop feedback structure:
 
 ![PLL Block-Level Circuit Diagram](pll_block_diagram.png)
 
