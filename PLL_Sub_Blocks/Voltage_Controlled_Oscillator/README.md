@@ -1,7 +1,7 @@
 # Design and Implementation of Voltage Controlled Oscillator (VCO)
 
-## Aim
-To design and implement a current-starved Voltage Controlled Oscillator (VCO) using SCL 180 nm technology, study its output frequency variation under a swept control voltage, and calculate the VCO gain ($K_{VCO}$) and frequency tuning range.
+## Design Objective
+To design, implement, and physically verify a high-performance current-starved Voltage Controlled Oscillator (VCO) using SCL 180 nm technology, characterize its output frequency sensitivity to control voltage inputs, and optimize its tuning range and overall gain ($K_{VCO}$).
 
 ---
 
@@ -116,7 +116,7 @@ The transient simulation plot showcases:
 
 ---
 
-## Inference
+## Technical Insights & Design Analysis
 The current-starved CMOS Voltage Controlled Oscillator was successfully designed, implemented, and physically verified. 
 - Transient and AC simulation results demonstrate that the output oscillation frequency is effectively and monotonically controlled by the input control voltage through current steering mechanisms.
 - The circuit shows highly stable oscillations, zero missing cycles, and clean transition characteristics.

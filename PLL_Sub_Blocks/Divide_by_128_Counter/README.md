@@ -1,7 +1,7 @@
 # Divide-by-128 Frequency Divider
 
-## Aim
-To design and implement a Divide-by-128 Counter using SCL 180 nm CMOS technology and verify its functionality through transient timing simulations in Cadence Virtuoso.
+## Design Objective
+To design, implement, and physically verify a high-speed Divide-by-128 Counter utilizing SCL 180 nm CMOS technology, serving as the feedback frequency divider block in a high-performance Phase-Locked Loop (PLL) synthesizer.
 
 ---
 
@@ -26,7 +26,7 @@ The architecture is implemented as a cascaded chain of **seven D flip-flop toggl
 
 ---
 
-## Circuit Implementation
+## Circuit Architecture & Implementation
 
 The Divide-by-128 counter circuit consists of:
 - **Cascaded D Flip-Flop stages**: Seven DFF blocks connected in series with the inverting output ($\bar{Q}$) fed back to the $D$ input of each stage.
@@ -90,7 +90,7 @@ The simulation plots contain:
 
 ---
 
-## Results
+## Performance Results Summary
 
 - **Input Frequency ($f_{input}$)**: $2.56\text{ GHz}$
 - **Output Frequency ($f_{output}$)**: $20\text{ MHz}$
@@ -103,7 +103,7 @@ The simulation plots contain:
 
 ---
 
-## Inference
+## Technical Insights & Design Analysis
 
 The Divide-by-128 counter was successfully designed, implemented, and verified using SCL 180 nm CMOS technology.
 - Correct frequency division operation has been demonstrated across all division ratios.
