@@ -2,7 +2,18 @@
 
 This document presents a direct comparison between the initial target design specifications and the simulated performance metrics achieved by the transistor-level bootstrapped NMOS switch design:
 
-| Performance Metric | Required Target | Achieved Result | Status |
+---
+
+## 1. Cadence Waveform & Result Summary
+The screenshot below presents the transient locking waveforms alongside the final simulation results summary from Cadence:
+
+![Final Sign-off Specification Comparison](conclusion_results.png)
+
+---
+
+## 2. Performance Comparison Table
+
+| Performance Parameter | Target Specification | Achieved Result | Status |
 |:---|:---|:---|:---|
 | **Technology Node** | 180 nm CMOS | 180 nm CMOS | Passed |
 | **Supply Voltage ($V_{DD}$)** | 1.8 V | 1.8 V | Passed |
