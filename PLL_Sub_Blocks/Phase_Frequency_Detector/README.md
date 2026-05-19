@@ -20,13 +20,13 @@ The Phase Frequency Detector (PFD) compares a reference clock (**CLKREF**) with 
 
 ### Inverter Building Block
 - **Schematic**: ![Inverter Schematic](schematics/inverter_schematic.png)
-- **Symbol (DRC‑checked)**: ![Inverter Symbol DRC](schematics/inverter_symbol_drc.png)
-- **Layout (TB view)**: ![Inverter Layout TB](schematics/inverter_layout_tb.png)
+- **Symbol (DRC‑checked)**: ![Inverter Symbol TB](schematics/inverter_symbol_tb.png)
+- **Layout (TB view)**: ![Inverter Layout DRC](schematics/inverter_layout_drc.png)
 
 ### Complete PFD Implementation
 - **Schematic**: ![PFD Schematic](schematics/pfd_schematic.png)
-- **Symbol (DRC‑checked)**: ![PFD Symbol DRC](schematics/pfd_symbol_drc.png)
-- **Layout (TB view)**: ![PFD Layout TB](schematics/pfd_layout_tb.png)
+- **Symbol (DRC‑checked)**: ![PFD Symbol TB](schematics/pfd_symbol_tb.png)
+- **Layout (TB view)**: ![PFD Layout DRC](schematics/pfd_layout_drc.png)
 
 ---
 
