@@ -2,7 +2,7 @@
 
 This directory presents the complete top-level integration and physical design of a **2.56 GHz Phase-Locked Loop (PLL)** implemented in **SCL 180 nm CMOS technology**. 
 
-The design brings together custom-designed sub-blocks—including the Phase Frequency Detector (PFD), Charge Pump, passive Loop Filter, current-starved Voltage Controlled Oscillator (VCO), and Divide-by-128 frequency counter—into a fully verified closed-loop frequency synthesizer.
+The design brings together custom-designed sub-blocks - including the Phase Frequency Detector (PFD), Charge Pump, passive Loop Filter, current-starved Voltage Controlled Oscillator (VCO), and Divide-by-128 frequency counter - into a fully verified closed-loop frequency synthesizer.
 
 ---
 
@@ -18,8 +18,8 @@ The design brings together custom-designed sub-blocks—including the Phase Freq
 | **Output Frequency ($f_{out}$)** | 2.56 GHz | Steady-state closed-loop target |
 | **Reference Frequency ($f_{ref}$)** | 20 MHz | Input clock from external source |
 | **Division Factor ($N$)** | 128 ($2^7$) | Feedback frequency scaling factor |
-| **Charge Pump Current ($I_{CP}$)** | 100 μA – 150 μA | Symmetric charging/discharging current |
-| **Loop Filter Resistance ($R$)** | 1 kΩ | Passive integrator damping resistor |
+| **Charge Pump Current ($I_{CP}$)** | 100 uA - 150 uA | Symmetric charging/discharging current |
+| **Loop Filter Resistance ($R$)** | 1 kOhm | Passive integrator damping resistor |
 | **Loop Filter Capacitance ($C_1$)** | 277 pF | Primary integration capacitor |
 
 ---
@@ -49,7 +49,7 @@ The block-level circuit diagram below highlights the signal routing, system inte
 
 ---
 
-## 🖼️ Schematic Implementation
+## Schematic Implementation
 
 The complete closed-loop transistor-level schematic is integrated hierarchy-wide in Cadence Virtuoso.
 
@@ -57,7 +57,7 @@ The complete closed-loop transistor-level schematic is integrated hierarchy-wide
 
 ---
 
-## 📐 Physical Layout & Silicon Verification
+## Physical Layout & Silicon Verification
 
 ### Integrated Macro Layout
 Symmetrical and isolated floorplanning of the analog sub-blocks (VCO, Loop Filter, Charge Pump) and digital cells (PFD, Counter) protects high-speed clock paths and minimizes substrate noise coupling.
@@ -72,7 +72,7 @@ Symmetrical and isolated floorplanning of the analog sub-blocks (VCO, Loop Filte
 
 ---
 
-## 📈 Closed-Loop Simulation Results
+## Closed-Loop Simulation Results
 
 ### 1. Transient Locking Dynamics
 At system start-up, the frequency offset between $f_{ref}$ and $f_{fb}$ causes the PFD to steer the Charge Pump. The loop filter control voltage ($V_{ctrl}$) ramps up and undergoes minor ringing before settling at its nominal lock-state voltage, pulling the VCO clock into phase alignment.
@@ -89,7 +89,7 @@ Under locked conditions, all internal loops operate in absolute lock-state synch
 
 ---
 
-## 📝 Design Analysis & Core Insights
+## Design Analysis & Core Insights
 
 1. **Fast Phase Acquisition**: Symmetrical current branch sizing ($I_{CP} = 100 - 150\ \mu\text{A}$) within the Charge Pump ensures zero static phase offset and highly balanced charging/discharging slew rates.
 2. **Optimized Loop Dynamics**: The loop filter parameters ($R=1\text{ k}\Omega$, $C_1=277\text{ pF}$) balance the loop bandwidth and phase margin, resulting in rapid locking with minimal jitter.
@@ -98,7 +98,7 @@ Under locked conditions, all internal loops operate in absolute lock-state synch
 
 ---
 
-## 🚀 Applications
+## Applications
 - **RF Transceivers & Frequency Synthesizers**
 - **High-Performance Clock Generation and Distribution**
 - **Mixed-Signal Microcontrollers & Clock Multipliers**
