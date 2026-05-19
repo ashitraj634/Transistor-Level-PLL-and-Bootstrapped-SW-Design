@@ -9,10 +9,12 @@ This edge-triggered flip-flop serves as a foundational building block for two cr
 
 ---
 
-## Transistor-Level Circuit Schematic
-The full master-slave transistor-level schematic capture of the D-Flip-Flop cell in Cadence Virtuoso:
+## Cell Symbol and Schematic View
+To integrate the D-Flip-Flop standard cell into hierarchical architectures (such as the Phase Frequency Detector or the Divide-by-128 Counter), a custom symbol view was generated alongside the master-slave transistor-level schematic:
 
-![DFF Transistor Schematic](schematic.png)
+| Virtuoso Symbol View | Virtuoso Schematic View |
+|:---:|:---:|
+| ![D-Flip-Flop Symbol](symbol.png) | ![DFF Transistor Schematic](schematic.png) |
 
 ---
 

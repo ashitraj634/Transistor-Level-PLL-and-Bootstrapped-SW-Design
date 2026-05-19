@@ -7,10 +7,12 @@ This cell serves as the primary logical block for building edge-triggered flip-f
 
 ---
 
-## Transistor-Level Circuit Schematic
-The full-custom transistor-level schematic capture of the NAND2 cell in Cadence Virtuoso:
+## Cell Symbol and Schematic View
+To integrate the NAND2 standard cell into hierarchical architectures (such as the D-Flip-Flop or Phase Frequency Detector), a custom symbol view was generated alongside the transistor-level schematic:
 
-![NAND2 Transistor Schematic](schematic.png)
+| Virtuoso Symbol View | Virtuoso Schematic View |
+|:---:|:---:|
+| ![NAND2 Symbol](symbol.png) | ![NAND2 Transistor Schematic](schematic.png) |
 
 ---
 
