@@ -51,19 +51,19 @@ Designed for high-speed ADC front-ends to eliminate input-dependent on-resistanc
 
 ## 3. IP Sub-Block Architecture
 
-### Custom Standard Cell Library
+### [Custom Standard Cell Library](Custom_Standard_Cells/README.md)
 To construct the digital boundaries of the PLL (PFD and N-Counter), a fully custom standard cell library was developed, physically laid out, and RC-extracted.
-* **Inverter:** Extracted parasitic layout analysis demonstrated a 15.67% increase in propagation delay (33.67 ps to 38.94 ps) due to physical routing parasitics.
+* **Inverter:** Extracted [parasitic layout analysis](Custom_Standard_Cells/Inverter/README.md) demonstrated a 15.67% increase in propagation delay (33.67 ps to 38.94 ps) due to physical routing parasitics.
 * **Logic Gates:** Custom NAND2 and NAND3 gates.
 * **D-Flip-Flop:** High-speed DFFs utilized in the synchronous N-Counter chain.
 
 ### Voltage Controlled Oscillator (VCO)
 A multi-stage current-starved ring oscillator. Transistor aspect ratios ($W_p = 100\ \mu\text{m}$, $W_n = 50\ \mu\text{m}$) were heavily optimized using $g_m/I_D$ design methodologies to achieve a massive 165.75% tuning range.
 
-### Analog Building Blocks
-Independent analog IP blocks designed for low-power operation:
-* **Amplifiers:** Common Source (100 MHz GBW) and Cascode Amplifiers (20 dB gain, 200 MHz bandwidth at 1 mW).
-* **Current Mirrors:** Simple and Cascode current mirrors engineered for high output resistance (100 uA - 500 uA).
+### [Analog Building Blocks](Analog_Building_Blocks/README.md)
+Independent analog IP blocks designed for low-power operation and ADC/PLL integration:
+* **Amplifiers:** [Common Source](Analog_Building_Blocks/Amplifiers/Common_Source/README.md) (100 MHz GBW) and [Cascode Amplifiers](Analog_Building_Blocks/Amplifiers/Cascode/README.md) (20 dB gain, 200 MHz bandwidth at 1 mW).
+* **Current Mirrors:** [Simple and Cascode current mirrors](Analog_Building_Blocks/Current_Mirrors/README.md) engineered for high output resistance (100 uA - 500 uA).
 
 ---
 
