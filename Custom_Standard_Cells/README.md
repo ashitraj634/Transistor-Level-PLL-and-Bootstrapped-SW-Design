@@ -8,9 +8,9 @@ This directory contains the physical design, characterization, and verification 
 
 * **[Inverter (INV)](Inverter/README.md)**: Full-custom CMOS inverter design, DC transfer characteristics (VTC), transient propagation delay analysis, layouts, RC parasitic extraction (RCX), and Calibre DRC/LVS physical verification checks.
 * **Logic Gates & Storage Elements**:
-  * **NAND2**: Two-input custom NAND logic cell schematic and physical aspect ratio matching.
-  * **NAND3**: Three-input CMOS NAND logic cell sizing and leakage power minimization.
-  * **D-Flip-Flop (DFF)**: High-speed edge-triggered storage element utilized for toggle division in the Divide-by-128 counter.
+  * **[NAND2](NAND2/README.md)**: Two-input custom NAND logic cell schematic and transistor aspect ratio matching.
+  * **[NAND3](NAND3/README.md)**: Three-input CMOS NAND logic cell sizing and leakage power minimization.
+  * **[D-Flip-Flop (DFF)](D_Flip_Flop/README.md)**: High-speed edge-triggered storage element utilized for toggle division in the Divide-by-128 counter.
 
 ---
 
