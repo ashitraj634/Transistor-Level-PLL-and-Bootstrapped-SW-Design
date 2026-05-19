@@ -66,6 +66,11 @@ flowchart TB
     style LF fill:#eff6ff,stroke:#2563eb,stroke-width:2px
 ```
 
+### Functional Block-Level Circuit Diagram
+The structural diagram below showcases the system interfaces, current-steering charging/discharging switches, and the integrated passive Loop Filter network:
+
+![PLL Block-Level Circuit Diagram](pll_block_diagram.png)
+
 ### Sub-Block Specifications
 * **Phase Frequency Detector (PFD)**: Compares the reference clock phase and the feedback divider phase to generate pulse-width modulated **UP** and **DOWN** signals.
 * **Charge Pump (CP)**: Transports charge to/from the Loop Filter based on PFD error pulse widths.
