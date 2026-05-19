@@ -78,6 +78,6 @@ To validate the bootstrap operation, the on-resistance $R_{on}$ was characterize
 
 ## 5. Physical Verification Summary
 The layout of the bootstrapped switch satisfies all physical checkouts:
-1. **Calibre DRC**: passed cleanly with zero violations. Minimum metal density, active enclosure, and contact spacings are fully met.
-2. **Calibre LVS**: 100% logical correspondence achieved between the schematic netlist and the standard cell row layouts.
-3. **Calibre PEX**: Interconnect resistances and wire capacitances were extracted to confirm that dynamic sampling bandwidth margins remain stable above **$120\text{ MHz}$**.
+1. **Calibre & Assura DRC**: Passed cleanly with zero violations. Minimum metal density, active enclosure, and contact spacings are fully met.
+2. **Calibre & Assura LVS**: 100% logical correspondence achieved between the schematic netlist and the standard cell row layouts.
+3. **Calibre PEX & Assura QRC**: Interconnect resistances and wire capacitances were extracted to confirm that dynamic sampling bandwidth margins remain stable above **$120\text{ MHz}$**.

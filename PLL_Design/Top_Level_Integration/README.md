@@ -30,7 +30,7 @@ The design brings together custom-designed sub-blocks - including the Phase Freq
 * **Technology Libraries**: `UMC18`, `ts018_scl_prim`, `gpdk090`
 * **Analysis & Verification**: 
   * Closed-Loop Transient Analysis (ADE-L / Spectre)
-  * Calibre Physical Verification (DRC & LVS)
+  * Assura & Calibre Physical Verification (DRC & LVS)
 
 ---
 
@@ -64,9 +64,9 @@ Symmetrical and isolated floorplanning of the analog sub-blocks (VCO, Loop Filte
 
 ![Top-Level PLL Layout](pll_layout.png)
 
-### Physical Verification (Calibre DRC & LVS)
+### Physical Verification (Assura & Calibre DRC & LVS)
 > [!TIP]
-> The integrated PLL layout passed Calibre DRC and LVS checks cleanly, confirming absolute structural correspondence with the schematic netlist and full compliance with 180 nm fabrication rules.
+> The integrated PLL layout passed both Cadence Assura and Mentor Graphics Calibre DRC and LVS checks cleanly, confirming absolute structural correspondence with the schematic netlist and full compliance with 180 nm fabrication rules.
 
 ![PLL LVS and DRC Check](pll_drc_lvs_check.png)
 

@@ -53,12 +53,12 @@ The physical layout involves optimal placement and routing of the PMOS and NMOS 
 ![Upload: Post-layout Screenshot](layouts/inverter_layout.png)
 
 ### Verification
-The layout successfully passed Design Rule Checks (DRC) and Layout Versus Schematic (LVS) comparisons.
+The layout successfully passed Design Rule Checks (DRC) and Layout Versus Schematic (LVS) comparisons using both Cadence Assura and Mentor Graphics Calibre.
 
 ![Upload: LVS Verification Screenshot](layouts/lvs_verification.png)
 
 ### Parasitic Extraction
-RC extraction was performed to model the physical interconnect parasitics accurately.
+RC parasitic extraction was performed using Assura QRC and Calibre PEX to model the physical interconnect parasitics accurately.
 
 ![Upload: RC Extraction Screenshot](layouts/rc_extraction.png)
 

@@ -21,7 +21,7 @@ To establish robust circuit boundaries, all analog blocks are systematically cha
 
 ### Dynamic Performance Specifications Matrix
 
-| Analog Circuit block | Technology Node | Supply $V_{DD}$ | Open-Loop Gain ($A_v$) | Phase Margin ($PM$) | Gain-Bandwidth ($GBW$) | Power ($P_{diss}$) | Output Resistance ($R_{out}$) | Calibre DRC/LVS |
+| Analog Circuit block | Technology Node | Supply $V_{DD}$ | Open-Loop Gain ($A_v$) | Phase Margin ($PM$) | Gain-Bandwidth ($GBW$) | Power ($P_{diss}$) | Output Resistance ($R_{out}$) | Calibre/Assura DRC/LVS |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Common Source (Resistive)** | 180 nm CMOS | $1.8\text{ V}$ | $4.80\text{ V/V}$ ($13.62\text{ dB}$) | $82.4^\circ$ | $100\text{ MHz}$ | $180\ \mu\text{W}$ | $1.5\text{ k}\Omega$ | Passed (Clean) |
 | **Common Source (Active)** | 180 nm CMOS | $1.8\text{ V}$ | $28.50\text{ V/V}$ ($29.09\text{ dB}$) | $68.5^\circ$ | $85\text{ MHz}$ | $240\ \mu\text{W}$ | $28.4\text{ k}\Omega$ | Passed (Clean) |
@@ -112,7 +112,7 @@ Every analog block inside this library was developed and sign-off verified using
                             ▼
 ┌────────────────────────────────────────────────────────┐
 │                5. Physical Verification                │
-│    Calibre DRC (design rules) & LVS (schematic match)  │
+│    Assura / Calibre DRC & LVS checks                   │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -120,6 +120,6 @@ Every analog block inside this library was developed and sign-off verified using
 
 ## Verification & Quality Assurance
 All structural blocks have successfully passed:
-- **Calibre Design Rule Checking (DRC)** for clean manufacturing tolerances.
-- **Layout Versus Schematic (LVS)** matching to guarantee physical netlist correspondence.
-- **Spectre Post-Layout RC Extraction (RCX)** to account for interconnect parasitics and verify performance margin compliance.
+- **Design Rule Checking (DRC)**: Verified using both Cadence Assura and Mentor Graphics Calibre to ensure complete adherence to minimum layout spacing rules.
+- **Layout Versus Schematic (LVS)**: Signed off via both Assura LVS and Calibre LVS tools, confirming 100% device and connectivity correspondence.
+- **Parasitic RC Extraction (RCX/PEX)**: Extracted using Assura QRC and Calibre PEX to perform post-layout validation under real parasitics.

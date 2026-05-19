@@ -1,7 +1,7 @@
 # Transistor-Level PLL and Bootstrapped SW Design
 
 [![Foundry Nodes](https://img.shields.io/badge/Foundry_Nodes-180nm%20%7C%2090nm-blue)](#)
-[![EDA Tool](https://img.shields.io/badge/EDA-Cadence_Virtuoso%20%7C%20Spectre-red)](#)
+[![EDA Tool](https://img.shields.io/badge/EDA-Cadence_Virtuoso%20%7C%20Spectre%20%7C%20Assura-red)](#)
 [![Verification](https://img.shields.io/badge/Verification-DRC%20%7C%20LVS%20%7C%20RCX-success)](#)
 
 Welcome to this professional Analog and Mixed-Signal Integrated Circuit Design portfolio. This repository documents a comprehensive, full-custom mixed-signal library culminating in the design, layout, and sign-off verification of two primary analog systems:
@@ -235,7 +235,7 @@ To construct the digital boundaries of the Phase Frequency Detector and the Divi
 
 ### Standard Cell Timing & Verification Metrics
 
-| Logic Cell | Aspect Ratio ($W/L$) | Pre-Layout Delay ($t_{pd1}$) | Post-Layout Delay ($t_{pd2}$) | Parasitic Delay Penalty (%) | Calibre DRC / LVS Sign-Off |
+| Logic Cell | Aspect Ratio ($W/L$) | Pre-Layout Delay ($t_{pd1}$) | Post-Layout Delay ($t_{pd2}$) | Parasitic Delay Penalty (%) | Calibre/Assura DRC/LVS |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | **CMOS Inverter** | $W_p = 1.20\ \mu\text{m}$, $W_n = 0.60\ \mu\text{m}$ | $33.67\text{ ps}$ | $38.95\text{ ps}$ | **$15.67\%$** | 100% Passed (Clean) |
 | **NAND2 Gate** | $W_p = 0.42\ \mu\text{m}$, $W_n = 0.42\ \mu\text{m}$ | $42.50\text{ ps}$ | $49.80\text{ ps}$ | **$17.18\%$** | 100% Passed (Clean) |
@@ -282,14 +282,14 @@ All designs in this portfolio follow a standard, industry-compliant full-custom 
 ```
 [Design Specifications] ──> [gm/Id Sizing] ──> [Cadence Schematic] ──> [Spectre Pre-Layout Sim]
                                                                                 │
-[Calibre RCX Netlist] <── [Calibre LVS] <── [Calibre DRC] <── [Physical Layout Design] <───┘
+[Assura/Calibre RCX Netlist] <── [Assura/Calibre LVS] <── [Assura/Calibre DRC] <── [Physical Layout Design] <───┘
           │
   [Spectre Post-Layout Sim] ──> [Design Sign-Off]
 ```
 
 ### Verification Suite & Sign-Off
-1. **Calibre DRC (Design Rule Checking)**: Ensures that physical layouts comply with all manufacturing rules (min width, spacing, active area density, antenna effects).
-2. **Calibre LVS (Layout Versus Schematic)**: Performs hierarchical comparisons of devices, terminals, and connections, verifying 100% logical correspondence.
-3. **Calibre PEX (Parasitic RC Extraction)**: Extracts physical interconnect resistances and parasitic capacitances to produce the post-layout netlist.
+1. **Calibre & Assura DRC (Design Rule Checking)**: Ensures that physical layouts comply with all manufacturing rules (min width, spacing, active area density, antenna effects) using both Mentor Graphics Calibre and Cadence Assura tool suites.
+2. **Calibre & Assura LVS (Layout Versus Schematic)**: Performs hierarchical comparisons of devices, terminals, and connections, verifying 100% logical correspondence and schematic-to-layout equivalence.
+3. **Calibre PEX & Assura QRC (Parasitic RC Extraction)**: Extracts physical interconnect resistances and parasitic capacitances to produce the post-layout netlist for parasitic-aware validation.
 4. **Spectre Simulation**: Post-layout simulation overlays schematic and physical responses to sign off timing, gain, noise, and power budgets.
-5. **Asset-Link Validation**: A custom verification script (`scratch/check_links.py`) scans all markdown files across the tree, verifying **101 asset paths** with **0 broken links**.
+5. **Asset-Link Validation**: A custom verification script (`scratch/check_links.py`) scans all markdown files across the tree, verifying **107 asset paths** with **0 broken links**.

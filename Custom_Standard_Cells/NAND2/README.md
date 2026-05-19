@@ -69,8 +69,8 @@ $$\text{Delay Penalty} = \frac{t_{pd2} - t_{pd1}}{t_{pd1}} \times 100 = 17.18\%$
 
 ## Physical Verification & Sign-Off
 
-The physical layout was designed following a standard-cell grid model and underwent complete sign-off verification using Calibre tool suites:
-1. **Design Rule Checking (DRC)**: Passed with zero violations. All spacing, enclosure, and minimum area rules for the 180 nm CMOS ruleset are fully satisfied.
-2. **Layout Versus Schematic (LVS)**: 100% matched. The physical layout netlist matches the logical schematic perfectly, ensuring zero connectivity, matching, or parameter violations.
-3. **Parasitic RC Extraction (RCX)**: Parasitics were extracted using Calibre PEX to produce the post-layout simulation netlist, validating noise immunity and timing margins.
+The physical layout was designed following a standard-cell grid model and underwent complete sign-off verification using both Cadence Assura and Mentor Graphics Calibre tool suites:
+1. **Design Rule Checking (DRC)**: Passed with zero violations using both Assura DRC and Calibre DRC. All spacing, enclosure, and minimum area rules for the 180 nm CMOS ruleset are fully satisfied.
+2. **Layout Versus Schematic (LVS)**: 100% matched. Signed off cleanly via Assura LVS and Calibre LVS. The physical layout netlist matches the logical schematic perfectly, ensuring zero connectivity, matching, or parameter violations.
+3. **Parasitic RC Extraction (RCX)**: Parasitics were extracted using Assura QRC and Calibre PEX to produce the post-layout simulation netlist, validating noise immunity and timing margins.
 

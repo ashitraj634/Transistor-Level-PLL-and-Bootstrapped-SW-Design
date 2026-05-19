@@ -6,7 +6,7 @@ This directory contains the physical design, characterization, and verification 
 
 ## Directory Navigation
 
-* **[Inverter (INV)](Inverter/README.md)**: Full-custom CMOS inverter design, DC transfer characteristics (VTC), transient propagation delay analysis, layouts, RC parasitic extraction (RCX), and Calibre DRC/LVS physical verification checks.
+* **[Inverter (INV)](Inverter/README.md)**: Full-custom CMOS inverter design, DC transfer characteristics (VTC), transient propagation delay analysis, layouts, RC parasitic extraction (RCX), and Calibre/Assura DRC/LVS physical verification checks.
 * **Logic Gates & Storage Elements**:
   * **[NAND2](NAND2/README.md)**: Two-input custom NAND logic cell schematic and transistor aspect ratio matching.
   * **[NAND3](NAND3/README.md)**: Three-input CMOS NAND logic cell sizing and leakage power minimization.
@@ -20,7 +20,7 @@ To construct a robust digital boundaries grid for the Phase-Locked Loop blocks, 
 
 ### Comparative Standard Cell Specs Matrix
 
-| Standard Cell | Function | PMOS Sizing ($W_p/L_p$) | NMOS Sizing ($W_n/L_n$) | Switching Threshold ($V_{sp}$) | Pre-Layout Delay ($t_{pd1}$) | Post-Layout Delay ($t_{pd2}$) | Parasitic Delay Penalty (%) | Dynamic Power | Calibre DRC/LVS |
+| Standard Cell | Function | PMOS Sizing ($W_p/L_p$) | NMOS Sizing ($W_n/L_n$) | Switching Threshold ($V_{sp}$) | Pre-Layout Delay ($t_{pd1}$) | Post-Layout Delay ($t_{pd2}$) | Parasitic Delay Penalty (%) | Dynamic Power | Calibre/Assura DRC/LVS |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Inverter (INV)** | Logical NOT | $1.20\ \mu\text{m} / 0.18\ \mu\text{m}$ | $0.60\ \mu\text{m} / 0.18\ \mu\text{m}$ | $0.90\text{ V}$ | $33.67\text{ ps}$ | $38.95\text{ ps}$ | **$15.67\%$** | $32.4\ \mu\text{W}$ | Passed (Clean) |
 | **NAND2 Gate** | 2-Input NAND | $0.42\ \mu\text{m} / 0.18\ \mu\text{m}$ | $0.42\ \mu\text{m} / 0.18\ \mu\text{m}$ | $0.85\text{ V}$ | $42.50\text{ ps}$ | $49.80\text{ ps}$ | **$17.18\%$** | $48.6\ \mu\text{W}$ | Passed (Clean) |
@@ -76,7 +76,7 @@ Digital standard cells are designed to fit together seamlessly in a row-based pl
 └───────────────────────────┬────────────────────────────┘
                             ▼
 ┌────────────────────────────────────────────────────────┐
-│             4. Calibre DRC & LVS Sign-Off              │
+│         4. Assura & Calibre DRC & LVS Sign-Off         │
 │  Design rule compliance & matching schematic netlists  │
 └───────────────────────────┬────────────────────────────┘
                             ▼

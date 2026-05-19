@@ -107,6 +107,6 @@ Symmetrical PMOS charging and NMOS discharging switching stages:
 ## 5. Physical Sign-Off Verification
 
 The fully integrated Type-II CPPLL layout underwent physical sign-off:
-1. **Calibre DRC**: Passed cleanly. Satisfies all manufacturing criteria, including minimum active area spacings, localized well proximity effects, metal density thresholds, and antenna rules.
-2. **Calibre LVS**: 100% netlist matching achieved between the high-speed counter, digital PFD, symmetrical charge pump branches, current-starved ring oscillator, and Loop Filter.
-3. **Calibre PEX & Post-Layout Simulation**: Interconnect parasitic extraction overlays confirm locked transient control voltage ($V_{ctrl}$) settles to $\approx 1.2\text{ V}$ in under **$1.8\ \mu\text{s}$** with zero cycle slip, indicating high closed-loop stability.
+1. **Calibre & Assura DRC**: Passed cleanly. Satisfies all manufacturing criteria, including minimum active area spacings, localized well proximity effects, metal density thresholds, and antenna rules.
+2. **Calibre & Assura LVS**: 100% netlist matching achieved between the high-speed counter, digital PFD, symmetrical charge pump branches, current-starved ring oscillator, and Loop Filter.
+3. **Calibre PEX & Assura QRC**: Interconnect parasitic extraction overlays confirm locked transient control voltage ($V_{ctrl}$) settles to $\approx 1.2\text{ V}$ in under **$1.8\ \mu\text{s}$** with zero cycle slip, indicating high closed-loop stability.

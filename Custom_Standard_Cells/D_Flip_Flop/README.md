@@ -43,7 +43,7 @@ To verify sequential stability, transient analysis was conducted to sweep setup/
 
 ### 2. Clock-to-Q Propagation Delay ($t_{C2Q}$)
 - **Pre-Layout Delay ($t_{C2Q,1}$)**: $120.0\text{ ps}$
-- **Post-Layout Delay ($t_{C2Q,2}$)**: $138.0\text{ ps}$ (With Calibre RC extraction)
+- **Post-Layout Delay ($t_{C2Q,2}$)**: $138.0\text{ ps}$ (With Assura/Calibre parasitic RC extraction)
 - **Parasitic Delay Penalty**:
   $$\text{Delay Penalty} = \frac{t_{C2Q,2} - t_{C2Q,1}}{t_{C2Q,1}} \times 100 = 15.00\%$$
 
@@ -60,8 +60,8 @@ To verify sequential stability, transient analysis was conducted to sweep setup/
 
 ## Physical Verification Summary
 
-The sequential layout underwent complete sign-off physical verification:
-1. **Calibre DRC (Design Rule Checking)**: Fully clean layout routing boundaries matching all metal-routing, contact spacing, and active area density regulations.
-2. **Calibre LVS (Layout Versus Schematic)**: 100% netlist matching between the physical multi-gate layouts and the master-slave Virtuoso schematic logic, guaranteeing zero logical discrepancies.
-3. **Calibre PEX (Parasitic Extraction)**: Full extraction of physical interconnect parasitics to run post-layout transient simulations and sign-off clock-to-Q parameters.
+The sequential layout underwent complete sign-off physical verification using both Cadence Assura and Mentor Graphics Calibre:
+1. **Calibre & Assura DRC (Design Rule Checking)**: Fully clean layout routing boundaries matching all metal-routing, contact spacing, and active area density regulations.
+2. **Calibre & Assura LVS (Layout Versus Schematic)**: 100% netlist matching between the physical multi-gate layouts and the master-slave Virtuoso schematic logic, guaranteeing zero logical discrepancies.
+3. **Calibre PEX & Assura QRC (Parasitic Extraction)**: Full extraction of physical interconnect parasitics to run post-layout transient simulations and sign-off clock-to-Q parameters.
 
