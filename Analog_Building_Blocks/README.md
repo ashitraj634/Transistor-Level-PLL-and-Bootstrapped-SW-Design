@@ -11,7 +11,7 @@ This directory houses a collection of transistor-level analog building blocks de
   * **[Common Source (Active Load)](Amplifiers/CS_Active_Load/README.md)**: Active current-source loaded CS amplifier engineered for maximized voltage gain and output swing.
   * **[Cascode Amplifier](Amplifiers/Cascode/README.md)**: High-speed, high-gain cascode configuration optimized for minimized Miller effect and enhanced reverse isolation.
 * **[Current Mirrors](Current_Mirrors/README.md)**: Simple and cascode current-steering mirrors characterized for high output resistance, headroom compliance, and channel length modulation suppression.
-* **[Bootstrapped Sampling Switch](Bootstrapped_Switch/README.md)**: High-linearity, low-distortion analog sampling gate engineered to suppress input-dependent on-resistance modulation.
+* **[Bootstrapped Sampling Switch](../Bootstrapped_Switch/README.md)**: High-linearity, low-distortion analog sampling gate engineered to suppress input-dependent on-resistance modulation.
 
 ---
 

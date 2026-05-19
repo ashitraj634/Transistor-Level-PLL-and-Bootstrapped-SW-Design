@@ -19,6 +19,7 @@ Every component - from fundamental logic gates to complex analog amplifiers - wa
   * **[Charge Pump (CP)](PLL_Design/Sub_Blocks/Charge_Pump/README.md)**: Transistor-level schematic, current branch mirror switches, physical layout, Calibre DRC, and transient charge/discharge simulation.
   * **[Voltage Controlled Oscillator (VCO)](PLL_Design/Sub_Blocks/Voltage_Controlled_Oscillator/README.md)**: Current-starved ring oscillator schematic, symbol, LVS/DRC physical verification, and control voltage frequency tuning range characterization curves.
   * **[Divide-by-128 Frequency Counter](PLL_Design/Sub_Blocks/Divide_by_128_Counter/README.md)**: Cascaded 7-stage DFF asynchronous division schematic, layout, Calibre DRC/LVS verification checks, and frequency scaling transient plots.
+* **[Bootstrapped Analog Sampling Switch](Bootstrapped_Switch/README.md)**: High-linearity sampling gate schematic, dynamic gate-boosting waveforms, on-resistance uniformity parameters, and spectral FFT harmonic distortion verification.
 
 ---
 
@@ -43,7 +44,7 @@ The functional schematic below illustrates the control interfaces, current-steer
 
 ---
 
-## 2. Bootstrapped Sampling Switch
+## 2. [Bootstrapped Sampling Switch](Bootstrapped_Switch/README.md)
 Designed for high-speed ADC front-ends to eliminate input-dependent on-resistance ($R_{on}$) modulation. 
 * **Performance:** Maintains a highly constant $V_{gs}$ across the sampling transistor, achieving a total $R_{on}$ variation of just **$\pm 3.43\%$** across a 1 $V_{pp}$ input swing at 10 MHz.
 
