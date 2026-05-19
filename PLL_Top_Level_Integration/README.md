@@ -1,93 +1,119 @@
-# Phase Locked Loop (PLL) Design and Integration
+# Transistor-Level 2.56 GHz Phase-Locked Loop (PLL) Integration
 
-## Design Objectives & Specifications
-To design, implement, and physically verify a complete closed-loop Phase Locked Loop (PLL) architecture using SCL 180 nm CMOS technology. The integrated system generates a stable high-frequency output synchronized with a lower-frequency reference clock.
+This directory presents the complete top-level integration and physical design of a **2.56 GHz Phase-Locked Loop (PLL)** implemented in **SCL 180 nm CMOS technology**. 
 
-### System Target Performance
-- **Target Output Frequency ($f_{out}$)**: 2.56 GHz
-- **Reference Clock Frequency ($f_{ref}$)**: 20 MHz
-- **Division Ratio ($N$)**: 128
-- **Charge Pump Current ($I_{CP}$)**: 100 μA – 150 μA
-- **Loop Filter Parameters**:
-  - Resistor ($R$): 1 kΩ
-  - Capacitor ($C_1$): 277 pF
+The design brings together custom-designed sub-blocks—including the Phase Frequency Detector (PFD), Charge Pump, passive Loop Filter, current-starved Voltage Controlled Oscillator (VCO), and Divide-by-128 frequency counter—into a fully verified closed-loop frequency synthesizer.
 
 ---
 
-## Design Environment
+## 📊 Key Specifications & Target Parameters
 
-- **Core CAD Suite**: Cadence Virtuoso
-- **Technology Libraries**: `UMC18`, `ts018_scl_prim`, `gpdk090`
-- **Technology Node**: SCL 180 nm CMOS
-- **Verification Analysis**: Closed-Loop Transient Analysis, DRC, and LVS
+> [!IMPORTANT]
+> The primary design objective is to synthesize a stable, low-jitter **2.56 GHz output** from a **20 MHz reference clock** using a loop multiplication factor of **128**.
 
----
-
-## PLL System Architecture
-
-The fully integrated PLL system comprises five key sub-blocks operating in a closed feedback loop:
-
-1. **Phase Frequency Detector (PFD)**: Compares the reference clock ($f_{ref}$) and the feedback divider clock ($f_{fb}$) phases, generating digital **UP** and **DOWN** pulses proportional to the phase/frequency error.
-2. **Charge Pump (CP)**: Converts the digital error pulses from the PFD into analog charge/discharge current pulses.
-3. **Loop Filter**: A passive low-pass RC network ($R = 1\text{ k}\Omega$, $C = 277\text{ pF}$) that integrates the current pulses to generate a smooth, low-ripple analog control voltage ($V_{ctrl}$).
-4. **Voltage Controlled Oscillator (VCO)**: A current-starved ring oscillator that generates a high-frequency output clock ($f_{out}$) proportional to the analog control voltage $V_{ctrl}$.
-5. **Divide-by-128 Counter**: A cascaded chain of 7 D-flip-flop toggle stages that divides the VCO output frequency down by a factor of 128 to complete the feedback loop.
+| Design Parameter | Value / Metric | Description |
+|:---|:---|:---|
+| **Technology Node** | SCL 180 nm CMOS | Core process library for all sub-blocks |
+| **Supply Voltage ($V_{DD}$)** | 1.8 V | Nominal power rail |
+| **Output Frequency ($f_{out}$)** | 2.56 GHz | Steady-state closed-loop target |
+| **Reference Frequency ($f_{ref}$)** | 20 MHz | Input clock from external source |
+| **Division Factor ($N$)** | 128 ($2^7$) | Feedback frequency scaling factor |
+| **Charge Pump Current ($I_{CP}$)** | 100 μA – 150 μA | Symmetric charging/discharging current |
+| **Loop Filter Resistance ($R$)** | 1 kΩ | Passive integrator damping resistor |
+| **Loop Filter Capacitance ($C_1$)** | 277 pF | Primary integration capacitor |
 
 ---
 
-## Top-Level Schematic Implementation
+## 💻 Design Environment
 
-The complete closed-loop system schematic in Cadence Virtuoso integrates the PFD, Charge Pump, passive Loop Filter, VCO, and Divide-by-128 feedback divider with structured power routing and robust signal interconnections.
+* **Core CAD Suite**: Cadence Virtuoso
+* **Technology Libraries**: `UMC18`, `ts018_scl_prim`, `gpdk090`
+* **Analysis & Verification**: 
+  * Closed-Loop Transient Analysis (ADE-L / Spectre)
+  * Calibre Physical Verification (DRC & LVS)
+
+---
+
+## 🧱 PLL System Block Diagram & Architecture
+
+The block diagram below highlights the signal routing and block interconnections forming the closed-loop system:
+
+```mermaid
+graph LR
+    RefClk[Ref Clock: 20 MHz] -->|f_ref| PFD[Phase Frequency Detector]
+    PFD -->|UP / DOWN| CP[Charge Pump]
+    CP -->|I_cp| LF[Loop Filter: R=1k, C=277p]
+    LF -->|V_ctrl| VCO[Current-Starved VCO]
+    VCO -->|f_out: 2.56 GHz| Output[System Output]
+    VCO -->|f_out| Div[Divide-by-128 Counter]
+    Div -->|f_fb: 20 MHz| PFD
+    
+    style RefClk fill:#f9f,stroke:#333,stroke-width:2px
+    style Output fill:#f9f,stroke:#333,stroke-width:2px
+    style LF fill:#bbf,stroke:#333,stroke-width:1px
+    style VCO fill:#bfb,stroke:#333,stroke-width:2px
+```
+
+### Sub-Block Specifications
+* **Phase Frequency Detector (PFD)**: Compares the reference clock phase and the feedback divider phase to generate pulse-width modulated **UP** and **DOWN** signals.
+* **Charge Pump (CP)**: Transports charge to/from the Loop Filter based on PFD error pulse widths.
+* **Loop Filter (LF)**: Integrates current pulses to generate the analog control voltage ($V_{ctrl}$) with suppressed high-frequency ripples.
+* **Voltage Controlled Oscillator (VCO)**: Produces the output frequency. Operating range spans $382.95\text{ MHz} - 4.09\text{ GHz}$ with a tuning gain ($K_{VCO}$) of $2.15 \times 10^{10}\text{ Hz/V}$.
+* **Divide-by-128 Counter**: A cascaded chain of 7 D-flip-flop toggle stages dividing the VCO output down by 128 to match the 20 MHz reference phase.
+
+---
+
+## 🖼️ Schematic Implementation
+
+The complete closed-loop transistor-level schematic is integrated hierarchy-wide in Cadence Virtuoso.
 
 ![Top-Level PLL Schematic](pll_schematic.png)
 
 ---
 
-## Physical Layout & Verification
+## 📐 Physical Layout & Silicon Verification
 
-### Integrated PLL Layout
-The complete physical layout of the Phase Locked Loop, featuring isolated sub-block placement and low-impedance power distribution grids.
+### Integrated Macro Layout
+Symmetrical and isolated floorplanning of the analog sub-blocks (VCO, Loop Filter, Charge Pump) and digital cells (PFD, Counter) protects high-speed clock paths and minimizes substrate noise coupling.
 
 ![Top-Level PLL Layout](pll_layout.png)
 
-### Layout vs. Schematic (LVS) & DRC Verification
-The integrated design is verified clean via Calibre DRC and LVS checks to confirm strict adherence to SCL 180 nm design rules and absolute schematic-to-layout equivalence.
+### Physical Verification (Calibre DRC & LVS)
+> [!TIP]
+> The integrated PLL layout passed Calibre DRC and LVS checks cleanly, confirming absolute structural correspondence with the schematic netlist and full compliance with 180 nm fabrication rules.
 
 ![PLL LVS and DRC Check](pll_drc_lvs_check.png)
 
 ---
 
-## Simulation & Transient Locking Behavior
+## 📈 Closed-Loop Simulation Results
 
-### Transient Lock Waveforms
-During the initial closed-loop start-up phase, a phase/frequency error exists between the reference clock and the divider feedback signal. The loop filter dynamically adjusts the control voltage ($V_{ctrl}$), pulling the VCO output frequency closer to the target until phase and frequency synchronization are achieved.
+### 1. Transient Locking Dynamics
+At system start-up, the frequency offset between $f_{ref}$ and $f_{fb}$ causes the PFD to steer the Charge Pump. The loop filter control voltage ($V_{ctrl}$) ramps up and undergoes minor ringing before settling at its nominal lock-state voltage, pulling the VCO clock into phase alignment.
 
 ![PLL Transient Lock Behavior](pll_transient_lock_behavior.png)
 
-### Closed-Loop System Waveforms
-The transient simulation plot displays the synchronized behavior across all key internal system nodes under a locked state:
-1. Reference clock input ($f_{ref} = 20\text{ MHz}$)
-2. PFD UP and DOWN error signals
-3. Charge pump output current steps
-4. Frequency divider output feedback clock ($f_{fb} = 20\text{ MHz}$)
-5. Stabilized VCO output clock ($f_{out} = 2.56\text{ GHz}$)
+### 2. Locked-State Waveforms
+Under locked conditions, all internal loops operate in absolute lock-state synchronization:
+- Symmetrical, low-ripple $V_{ctrl}$ hold condition.
+- Feedback clock ($f_{fb}$) aligned with the reference clock ($f_{ref}$).
+- Stable, high-speed 2.56 GHz output waveforms.
 
 ![PLL Closed-Loop System Waveforms](pll_closed_loop_waveforms.png)
 
 ---
 
-## Performance Summary & Technical Analysis
+## 📝 Design Analysis & Core Insights
 
-Closed-loop transient validation confirms the success of the SCL 180 nm PLL design:
-- **Phase & Frequency Synchronization**: Achieved complete, stable lock condition with zero cycle slipping.
-- **Precise Clock Generation**: Verified output clock frequency of **2.56 GHz** from a **20 MHz** reference clock with a division factor of **128**.
-- **Low-Ripple Control Voltage**: The optimized passive loop filter components ($R=1\text{ k}\Omega$, $C=277\text{ pF}$) generate a highly stable analog control voltage with minimal ripple.
-- **Symmetric Slew Behavior**: Smooth closed-loop tracking response confirms low current mismatch in the Charge Pump and robust feedback divider operation.
+1. **Fast Phase Acquisition**: Symmetrical current branch sizing ($I_{CP} = 100 - 150\ \mu\text{A}$) within the Charge Pump ensures zero static phase offset and highly balanced charging/discharging slew rates.
+2. **Optimized Loop Dynamics**: The loop filter parameters ($R=1\text{ k}\Omega$, $C_1=277\text{ pF}$) balance the loop bandwidth and phase margin, resulting in rapid locking with minimal jitter.
+3. **Substrate & Switching Noise Isolation**: Physical isolation of the current-starved ring oscillator from high-slew digital lines (PFD, Counter) minimizes clock coupling and phase jitter.
+4. **Asynchronous Divider Speed**: Utilizing toggle DFF architectures for the 7 divider stages guarantees low accumulation delay at high VCO clock rates (2.56 GHz).
 
 ---
 
-## Applications
-- High-frequency Clock Generation and Distribution
-- RF and Digital Frequency Synthesizers
-- High-Speed Mixed-Signal Integrated Circuits
-- Communication and Timing Recovery Systems
+## 🚀 Applications
+- **RF Transceivers & Frequency Synthesizers**
+- **High-Performance Clock Generation and Distribution**
+- **Mixed-Signal Microcontrollers & Clock Multipliers**
+- **High-Speed Serial Link Timing Recovery**
