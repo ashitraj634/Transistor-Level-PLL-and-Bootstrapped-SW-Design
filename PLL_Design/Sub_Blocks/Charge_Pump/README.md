@@ -37,6 +37,17 @@ The charge pump architecture consists of:
 - **UP = 0, DOWN = 1**: Discharging current is activated from the loop filter, decreasing the output voltage.
 - **UP = DOWN = 0**: Hold condition is active; the output node is high-impedance, keeping the loop filter voltage stable.
 
+### Transistor Sizing Parameters (180 nm CMOS Node)
+
+| Circuit Function | Transistor Type | Width ($W$) | Length ($L$) | Multiplier ($m$) | Sizing Rationale |
+|:---|:---|:---|:---|:---|:---|
+| **PMOS Current Source** | PMOS | $40.0\ \mu\text{m}$ | $0.36\ \mu\text{m}$ | 2 | Large channel length reduces channel modulation ($\lambda$) and current mismatch |
+| **NMOS Current Sink** | NMOS | $20.0\ \mu\text{m}$ | $0.36\ \mu\text{m}$ | 2 | Matched to PMOS branch current density and mobility ratio ($\approx 2$) |
+| **PMOS Up-Switch** | PMOS | $20.0\ \mu\text{m}$ | $0.18\ \mu\text{m}$ | 1 | Minimum length for high-speed switching; wide width lowers switch resistance |
+| **NMOS Down-Switch** | NMOS | $10.0\ \mu\text{m}$ | $0.18\ \mu\text{m}$ | 1 | Sized symmetrically for high switching frequency and matched propagation delay |
+| **PMOS Bias Mirrors** | PMOS | $10.0\ \mu\text{m}$ | $0.36\ \mu\text{m}$ | 1 | Steady biasing voltage reference; robust noise margins |
+| **NMOS Bias Mirrors** | NMOS | $5.0\ \mu\text{m}$ | $0.36\ \mu\text{m}$ | 1 | Reference current distribution with low sensitivity to power rail noise |
+
 ### Cadence Schematic
 ![Charge Pump Schematic](schematics/cp_schematic.png)
 
@@ -54,9 +65,10 @@ The charge pump architecture consists of:
 Physical layout of the Charge Pump featuring symmetrical transistor placing to minimize current mismatch and layout parasitics.
 ![Charge Pump Layout](schematics/cp_layout.png)
 
-### DRC Verification
-Verified using Calibre DRC to ensure complete compliance with the SCL 180 nm technology design rules, confirming a DRC-clean layout with zero violations.
+### DRC & LVS Verification
+- **Calibre DRC (Design Rule Check)**: Fully verified using Calibre DRC to ensure complete compliance with the SCL 180 nm technology design rules, confirming a DRC-clean layout with zero violations.
 ![Charge Pump DRC](schematics/cp_layout_drc.png)
+- **Calibre LVS (Layout Versus Schematic)**: 100% netlist matching achieved between the physical layout and Virtuoso transistor schematic, confirming zero logical, parameter, or connectivity discrepancies.
 
 ---
 

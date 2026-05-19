@@ -7,10 +7,12 @@ Within this repository, the NAND3 gate serves as a critical logical element in e
 
 ---
 
-## Cell Symbol View
-To integrate the NAND3 standard cell into hierarchical architectures (such as the reset logic of the Phase Frequency Detector), a custom symbol view was generated:
+## Cell Symbol and Schematic View
+To integrate the NAND3 standard cell into hierarchical architectures (such as the reset logic of the Phase Frequency Detector), a custom symbol view was generated alongside the transistor-level schematic:
 
-![NAND3 Symbol](symbol.png)
+| Virtuoso Symbol View | Virtuoso Schematic View |
+|:---:|:---:|
+| ![NAND3 Symbol](symbol.png) | ![NAND3 Transistor Schematic](schematic.png) |
 
 ---
 
