@@ -36,22 +36,34 @@ The design brings together custom-designed sub-blocks—including the Phase Freq
 
 ## 🧱 PLL System Block Diagram & Architecture
 
-The block diagram below highlights the signal routing and block interconnections forming the closed-loop system:
+The block diagram below highlights the signal routing and closed-loop feedback structure:
 
 ```mermaid
-graph LR
-    RefClk[Ref Clock: 20 MHz] -->|f_ref| PFD[Phase Frequency Detector]
-    PFD -->|UP / DOWN| CP[Charge Pump]
-    CP -->|I_cp| LF[Loop Filter: R=1k, C=277p]
-    LF -->|V_ctrl| VCO[Current-Starved VCO]
-    VCO -->|f_out: 2.56 GHz| Output[System Output]
-    VCO -->|f_out| Div[Divide-by-128 Counter]
-    Div -->|f_fb: 20 MHz| PFD
+flowchart TB
+    %% Reference Input
+    Ref[Reference Clock<br>20 MHz] --> PFD
     
-    style RefClk fill:#f9f,stroke:#333,stroke-width:2px
-    style Output fill:#f9f,stroke:#333,stroke-width:2px
-    style LF fill:#bbf,stroke:#333,stroke-width:1px
-    style VCO fill:#bfb,stroke:#333,stroke-width:2px
+    %% Forward Path
+    subgraph Forward_Path [Forward Control Path]
+        PFD[Phase Frequency Detector] -->|UP / DOWN| CP[Charge Pump]
+        CP -->|I_CP| LF[Loop Filter<br>R = 1 kΩ, C = 277 pF]
+        LF -->|V_ctrl| VCO[Current-Starved VCO]
+    end
+    
+    %% Output and Feedback
+    VCO -->|f_out| Out[System Output<br>2.56 GHz]
+    VCO -->|f_out| Div[Divide-by-128 Counter]
+    
+    %% Feedback Connection
+    Div -->|f_fb: 20 MHz| PFD
+
+    %% Custom Styling
+    style Ref fill:#f3e8ff,stroke:#6b21a8,stroke-width:2px
+    style Out fill:#ecfdf5,stroke:#065f46,stroke-width:2px
+    style Forward_Path fill:#f8fafc,stroke:#475569,stroke-width:1px
+    style VCO fill:#f0fdf4,stroke:#16a34a,stroke-width:2px
+    style CP fill:#fff7ed,stroke:#ea580c,stroke-width:2px
+    style LF fill:#eff6ff,stroke:#2563eb,stroke-width:2px
 ```
 
 ### Sub-Block Specifications
