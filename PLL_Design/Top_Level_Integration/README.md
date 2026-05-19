@@ -38,7 +38,7 @@ The design brings together custom-designed sub-blocks - including the Phase Freq
 
 The block-level circuit diagram below highlights the signal routing, system interfaces, current-steering charging/discharging switches, and the closed-loop feedback structure:
 
-![PLL Block-Level Circuit Diagram ](pll_block_diagram.png)
+![PLL Block-Level Circuit Diagram](pll_block_diagram.png)
 
 ### Sub-Block Specifications
 * **Phase Frequency Detector (PFD)**: Compares the reference clock phase and the feedback divider phase to generate pulse-width modulated **UP** and **DOWN** signals.

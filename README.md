@@ -28,7 +28,7 @@ The CPPLL integrates a custom Phase Frequency Detector, Charge Pump, passive Typ
 ### PLL Block-Level Circuit Diagram
 The functional schematic below illustrates the control interfaces, current-steering switches, and the passive Loop Filter network ($R=1\text{ k}\Omega$, $C=277\text{ pF}$) of the integrated system:
 
-![PLL Block-Level Circuit Diagram](pll_block_diagram.png)
+![PLL Block-Level Circuit Diagram](PLL_Design/Top_Level_Integration/pll_block_diagram.png)
 
 ### Performance Specs Summary
 | Parameter | Value | Unit | Conditions |
