@@ -1,4 +1,4 @@
-# CMOS Analog & Mixed-Signal IC Design Portfolio
+# Transistor-Level PLL and Bootstrapped SW Design
 
 [![Foundry Nodes](https://img.shields.io/badge/Foundry_Nodes-180nm%20%7C%2090nm-blue)](#)
 [![EDA Tool](https://img.shields.io/badge/EDA-Cadence_Virtuoso%20%7C%20Spectre-red)](#)
